@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 // default page for user
 app.get('/', async (req, res) => {
-    res.sendFile(__dirname + '/home.html');
+    res.sendFile(__dirname + 'pages/home.html');
 });
 
 app.get('/test', async (req, res) => {
