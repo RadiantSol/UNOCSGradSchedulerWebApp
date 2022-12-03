@@ -8,6 +8,7 @@ const app = express();
 // dynamically change HTML pages using ejs
 // https://www.geeksforgeeks.org/how-to-dynamically-add-html-content-when-documents-are-inserted-in-collection-using-node-js/
 app.set('view engine', 'ejs');
+// AWS RDB login information; do not touch
 const con = mysql.createConnection({
     host: "localhost",
     user: "MasterUser",
@@ -30,7 +31,8 @@ con.connect(function (err) {
 app.get("/", async (req, res) => {
     res.render("home");
 });
-
+// fetch and display classes to user from database
+// TODO: make it prettier (currently formatted to work with HTML lists, probably should be a table)
 app.get("/scheduler", async (req, res) => {
     con.connect(function (err) {
         if(err) throw err;
@@ -41,9 +43,15 @@ app.get("/scheduler", async (req, res) => {
             console.log("Result: " + result);
             // if result list is null, replace with "problem fetching classes!"
             result = result ? result : "problem fetching classes from db!";
+            // TODO: let user input values into an HTML form to select classes from list to sign up for
+            // establish new table for each user?? idk
             res.render("scheduler", {classes: result});
         });
     });
+});
+// TODO: implement login function for students to save their class selection (STRETCH GOAL)
+app.get("/login", async (req, res) => {
+
 });
 
 const server = app.listen(PORT, () => {
