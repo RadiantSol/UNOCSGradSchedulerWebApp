@@ -20,7 +20,9 @@ const con = mysql.createConnection({
 // DO NOT USE COMMENTS IN initdb.sql FILE
 const sql = fs.readFileSync("initdb.sql").toString();
 con.connect(function (err) {
-    //if(err) throw err;
+    if(err) {
+        console.error("failed to connect to db");
+    }
     console.log("Connected to class db");
     con.query(sql, function (err, result) {
         //if(err) throw err;
@@ -40,6 +42,7 @@ app.get("/scheduler", async (req, res) => {
         classList = result;
         console.log("Result: " + result);
         // if result list is null, replace with "problem fetching classes!"
+        result = "test";
         result = result ? result : "problem fetching classes from db!";
         // TODO: let user input values into an HTML form to select classes from list to sign up for
         // establish new table for each user?? idk
