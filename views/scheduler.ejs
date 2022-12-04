@@ -5,11 +5,29 @@
         <title>Courses Viewer</title>
     </head>
     <body>
-        <center><h1>Current Available Curriculum</h1></center>
-        <ul>
-            <% for (var i = 0; i < classes.length ; i++) { %>
-                <li> <%= classes[i].toString() %> </li>
-            <% } %>
-        </ul>
+        <table id="table" >  
+            <thead>  
+                <tr> 
+                    <th>ID</th> 
+                    <th>Class</th>  
+                    <th>Semester</th>  
+                    <th>Year</th>
+                    <th>Time</th>
+                    <th>Credit Hours</th>
+                </tr>  
+            </thead>  
+             <tbody>  
+             <% classes.forEach(function (class) { %>
+                <tr>  
+                    <td><%= class.id %></td>  
+                    <td><%= class.classname %></td>
+                    <td><%= class.semester %></td>
+                    <td><%= class.schoolyear %></td>
+                    <td><%= class.startTime %></td>
+                    <td><%= class.creditHours %></td>
+                </tr>                                   
+             <% }) %>
+             </tbody>
+        </table>   
     </body>
 </html>
