@@ -42,7 +42,6 @@ app.get("/scheduler", async (req, res) => {
         classList = result;
         console.log("Result: " + result);
         // if result list is null, replace with "problem fetching classes!"
-        result = "test";
         result = result ? result : "problem fetching classes from db!";
         // TODO: let user input values into an HTML form to select classes from list to sign up for
         // establish new table for each user?? idk
