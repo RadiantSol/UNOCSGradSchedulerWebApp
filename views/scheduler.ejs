@@ -17,14 +17,14 @@
                 </tr>  
             </thead>  
              <tbody>  
-             <% classes.forEach(function (class) { %>
+             <% classes.forEach(function (r) { %>
                 <tr>  
-                    <td><%= class.id %></td>  
-                    <td><%= class.classname %></td>
-                    <td><%= class.semester %></td>
-                    <td><%= class.schoolyear %></td>
-                    <td><%= class.startTime %></td>
-                    <td><%= class.creditHours %></td>
+                    <td><%= r.id %></td>  
+                    <td><%= r.classname %></td>
+                    <td><%= r.semester %></td>
+                    <td><%= r.schoolyear %></td>
+                    <td><%= r.startTime %></td>
+                    <td><%= r.creditHours %></td>
                 </tr>                                   
              <% }); %>
              </tbody>
