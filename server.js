@@ -20,10 +20,10 @@ const con = mysql.createConnection({
 // DO NOT USE COMMENTS IN initdb.sql FILE
 const sql = fs.readFileSync("initdb.sql").toString();
 con.connect(function (err) {
-    if(err) throw err;
+    //if(err) throw err;
     console.log("Connected to class db");
     con.query(sql, function (err, result) {
-        if(err) throw err;
+        //if(err) throw err;
         console.log("Result: " + result);
     });
 });
@@ -36,7 +36,7 @@ app.get("/", async (req, res) => {
 // TODO: make it prettier (currently formatted to work with HTML lists, probably should be a table)
 app.get("/scheduler", async (req, res) => {
     con.query("SELECT * FROM classes", function (err, result) {
-        if(err) throw err;
+        //if(err) throw err;
         classList = result;
         console.log("Result: " + result);
         // if result list is null, replace with "problem fetching classes!"
