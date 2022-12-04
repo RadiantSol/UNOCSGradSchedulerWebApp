@@ -10,9 +10,10 @@ const app = express();
 app.set('view engine', 'ejs');
 // AWS RDB login information; do not touch
 const con = mysql.createConnection({
-    host: "localhost",
-    user: "MasterUser",
-    password: "nzm3twz7TVU9dje!muy",
+    host: process.env.RDS_HOSTNAME,
+    user: process.env.RDS_USERNAME,
+    password: process.env.RDS_PASSWORD,
+    port: process.env.RDS_PORT,
     multipleStatements: true
 });
 // initialize db and populate tables with data (see initdb.sql file)
@@ -34,19 +35,15 @@ app.get("/", async (req, res) => {
 // fetch and display classes to user from database
 // TODO: make it prettier (currently formatted to work with HTML lists, probably should be a table)
 app.get("/scheduler", async (req, res) => {
-    con.connect(function (err) {
+    con.query("SELECT * FROM classes", function (err, result) {
         if(err) throw err;
-        console.log("Connected to class db");
-        con.query("SELECT * FROM classes", function (err, result) {
-            if(err) throw err;
-            classList = result;
-            console.log("Result: " + result);
-            // if result list is null, replace with "problem fetching classes!"
-            result = result ? result : "problem fetching classes from db!";
-            // TODO: let user input values into an HTML form to select classes from list to sign up for
-            // establish new table for each user?? idk
-            res.render("scheduler", {classes: result});
-        });
+        classList = result;
+        console.log("Result: " + result);
+        // if result list is null, replace with "problem fetching classes!"
+        result = result ? result : "problem fetching classes from db!";
+        // TODO: let user input values into an HTML form to select classes from list to sign up for
+        // establish new table for each user?? idk
+        res.render("scheduler", {classes: result});
     });
 });
 // TODO: implement login function for students to save their class selection (STRETCH GOAL)
