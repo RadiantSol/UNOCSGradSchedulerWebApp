@@ -1,8 +1,6 @@
 {
     "name": "csgradcoursehelper",
     "version": "1.0.0",
-    "description": "Grad Course Scheduler Helper for the CS master's program at UNO",
-    "author": "First Last <first.last@example.com>",
     "main": "server.js",
     "scripts": {
         "start": "node server.js"
