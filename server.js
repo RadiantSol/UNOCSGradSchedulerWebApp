@@ -1,6 +1,7 @@
 const express = require("express");
 const mysql = require("mysql");
 const fs = require("fs");
+const path = require("path");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -8,6 +9,7 @@ const app = express();
 // dynamically change HTML pages using ejs
 // https://www.geeksforgeeks.org/how-to-dynamically-add-html-content-when-documents-are-inserted-in-collection-using-node-js/
 app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'views/media')));
 // AWS RDB login information; do not touch
 const con = mysql.createConnection({
     host: process.env.RDS_HOSTNAME,
