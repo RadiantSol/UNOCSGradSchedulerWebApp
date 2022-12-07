@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <!--TODO: MAKE THIS PRETTY :)-->
 <html>
-    <head>
-        <title>CS Master's Program Course Helper</title>
-        <h1>CS Master's Program Course Helper</h1>
+
+<head>
+    <link rel="stylesheet" href="testCss.css">
+
+    <font size="7">
+        <div id="title">
+            <b>U.N.O. CS Master's Program Course Helper</b>
+        </div>
+    </font>
+
+    <div id="audio">
         <figure>
             <figcaption>Listen to this page:</figcaption>
-            <audio
-                controls
-                src="home.mp3">
-                    <a href="home.mp3">
-                        Download audio
-                    </a>
+            <audio controls src="home.mp3">
+                <a href="home.mp3">
+                    Download audio
+                </a>
             </audio>
         </figure>
-            <p>Welcome to the course scheduler helper for the Computer Science Master's program from the University of New Orleans!</p>
-            <a href="https://www.uno.edu/academics/cos/computer-science/computer-science-ms">Learn more about the CS Master's Program at UNO</a>
-            <p>
-                <button onclick="window.location.href='/scheduler';">Schedule My Courses</button>
-            </p>
-    </head>
+    </div>
+
+    <div id="welcome">
+        <em><b>Welcome to the course scheduler helper for the Computer Science Master's program from the University of
+                New Orleans!</b></em>
+    </div>
+
+    <div id="link" <a href="https://www.uno.edu/academics/cos/computer-science/computer-science-ms">Learn more about the
+        CS Master's Program at UNO </a>
+        <p>
+            <button id="scheduleButton" onclick="window.location.href='/scheduler';">Schedule My Courses</button>
+        </p>
+    </div>
+</head>
+
 </html>
