@@ -2,6 +2,7 @@ const express = require("express");
 const mysql = require("mysql");
 const fs = require("fs");
 const path = require("path");
+const { debug } = require("console");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -37,19 +38,29 @@ app.get("/", async (req, res) => {
     res.render("home");
 });
 // fetch and display classes to user from database
-// TODO: make it prettier (currently formatted to work with HTML lists, probably should be a table)
 app.get("/scheduler", async (req, res) => {
     con.query("SELECT * FROM classes", function (err, result) {
         //if(err) throw err;
-        classList = result;
         console.log("Result: " + result);
-        // if result list is null, replace with "problem fetching classes!"
-        result = result ? result : "problem fetching classes from db!";
-        // TODO: let user input values into an HTML form to select classes from list to sign up for
-        // establish new table for each user?? idk
+        debug = [{areaOfStudy: "blah", department: "csci", id: "6000", classname: "wowee class", credithours: "3"},
+        {areaOfStudy: "blah", department: "csci", id: "6000", classname: "wowee class", credithours: "3"}];
+        // if result list is null, replace with debug class list
+        result = result ? result : debug;
         res.render("scheduler", {classes: result});
     });
 });
+
+// display user's classes from submitted form from /scheduler
+app.post("/scheduler", async (req, res) =>  {
+    // con.query("SELECT * FROM classes WHERE id = ? AND areaOfStudy = ?") function(err, result) {
+    //     if(err) throw err;
+    //     console.log("Result: " + result);
+    //     debug = [{areaOfStudy: "blah", department: "csci", id: "6000", classname: "wowee class", credithours: "3"},
+    //     {areaOfStudy: "blah", department: "csci", id: "6000", classname: "wowee class", credithours: "3"}];
+    //     result = result ? result : debug;
+    //     res.render("coursecheck", {classes: result, valid: validators});
+    // }
+})
 // TODO: implement login function for students to save their class selection (STRETCH GOAL)
 app.get("/login", async (req, res) => {
 
