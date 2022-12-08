@@ -77,7 +77,10 @@ app.post("/scheduler", async (req, res) => {
             // if the chosen courses aren't duplicates, add to the list of taken areas and courses (some courses cover multiple areas, but only count for one)
             if(!(args[1] in takenCourses)) {
                 takenCourses[args[1]] = args[0];
-                areas[args[0]] = areas[args[0]] + 1 || 1;
+                // DO NOT ADD TO FULFILLED AREAS LIST IF ITS A 5000 LEVEL COURSE
+                if(!(args[1].charAt(0) == "5")) {
+                    areas[args[0]] = areas[args[0]] + 1 || 1;
+                }
             }
         });
     }
@@ -86,13 +89,24 @@ app.post("/scheduler", async (req, res) => {
     let hours = 0;
     if(totalAreas >= 3) {
         validators.breadth = true;
-        Object.keys(areas).forEach(function (key) {
-            hours += areas[key] * 3;
-            if(areas[key] >= 3) {
-                validators.depth = true;
-            }
-        });
+        // depth check
+        if(totalAreas >= 4) {
+            Object.keys(areas).forEach(function (key) {
+                if(areas[key] >= 3) {
+                    validators.depth = true;
+                }
+            });
+        }
     }
+    // count total hours taken
+    Object.keys(takenCourses).forEach(function (course) {
+        let clim = 0;
+        // only 5 5000 level courses can count toward graduation
+        if(course.charAt(0) == "5" && clim < 5) {
+            hours += 3;
+            clim++;
+        }
+    });
     if(hours >= 36) {
         validators.hours = true;
     }
