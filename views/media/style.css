@@ -19,51 +19,79 @@ body {
 	}
 }
 
-#title{
-	position: relative;
-	background-color: white;
-	padding: 10px;
+#title {
+    border-radius: 1.5rem;
+    text-align: center;
+    position: relative;
+    background-color: white;
 	text-align: center;
 	width: 54.3%;
 	margin: auto;
-	height: 150px;
+	height: auto;
+}
+
+#tablediv {
+    overflow-y: scroll;
+    margin: auto;
+    height: 31.25rem;
+    width: 70%;
 }
 
 #audio {
 	position: relative;
 	background-color: white;
-	padding: 5px;
+	padding: 0.33rem;
 	text-align: center;
 	width: 55%;
 	margin: auto;
-	height: 200px;
+	height: 12.5rem;
 }
 
 
 #welcome{
 	position: relative;
 	background-color: white;
-	padding: 5px;
+	padding: 0.5rem;
 	text-align: center;
 	width: 55%;
 	margin: auto;
-	height: 150px;
+	height: 9.375rem;
 }
 
 #link{
 	position: relative;
 	background-color: white;
-	padding: 5px;
+	padding: 0.33rem;
 	text-align: center;
 	width: 55%;
 	margin: auto;
-	height: 150px;
+	height: 9.5rem;
 }
 
 #scheduleButton{
 	outline: none;
-	width: 200px;
-	height: 60px;
-	font-size: 16px;
-	border-radius: 200px;
+	width: 12.5rem;
+	height: 4rem;
+	font-size: 1rem;
+	border-radius: 10rem;
+}
+
+#navbar {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    font-size: 1rem;
+    padding: 0.5rem, 1rem;
+    position: relative;
+    top: 0rem;
+    background-color: white;
+}
+
+.button {
+    outline: none;
+    width: 12.5rem;
+    height: 4rem;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 10rem;
 }
