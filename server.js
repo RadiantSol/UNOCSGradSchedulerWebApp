@@ -99,12 +99,15 @@ app.post("/scheduler", async (req, res) => {
         }
     }
     // count total hours taken
+    let clim = 0;
     Object.keys(takenCourses).forEach(function (course) {
-        let clim = 0;
         // only 5 5000 level courses can count toward graduation
         if(course.charAt(0) == "5" && clim < 5) {
             hours += 3;
             clim++;
+        }
+        else {
+            hours += 3;
         }
     });
     if(hours >= 36) {
