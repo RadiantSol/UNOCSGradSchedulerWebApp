@@ -4,6 +4,7 @@ body {
 	-webkit-animation: gradient 15s ease infinite;
 	        animation: gradient 15s ease infinite;
 	height: 100vh;
+	margin: 0rem;
 }
 @-webkit-keyframes gradient {
 	0% {
