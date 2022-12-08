@@ -9,7 +9,7 @@ https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.htm
 
 and set up your project directory to use the Node.js platform
 
-HOW TO DEPLOY:
+## HOW TO DEPLOY:
 
 First, locate your base.cfg.yml file included in the app.zip folder inside of .elasticbeanstalk.
 At the section below, please replace ```email``` with the email address of where you would like to receive notifications regarding your environment's health.
@@ -21,6 +21,9 @@ Your application is now ready to deploy using AWS EB CLI
 
 To deploy this application using the AWS Elastic Beanstalk service, navigate to the folder containing your configured EB CLI directory in your
 terminal and run the following command:
+
+```
 eb create --cfg base
+```
 
 A new environment will be created for your application with a preconfigured load balancer, database, and other required AWS services.
