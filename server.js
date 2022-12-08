@@ -105,6 +105,7 @@ app.post("/scheduler", async (req, res) => {
     });
     // crop out hanging UNION from statement
     multiStatement = multiStatement.substring(0, (multiStatement.length - 1) - 7);
+    console.log(multiStatement);
 
     con.query(multiStatement, function(err, result) {
         //if(err) throw err;
