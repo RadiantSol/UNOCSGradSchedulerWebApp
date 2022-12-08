@@ -73,7 +73,7 @@ app.post("/scheduler", async (req, res) => {
     }
     else {
         req.body.class.forEach(function (course) {
-            let args = course.split(" ");
+            let args = course.split(",");
             // if the chosen courses aren't duplicates, add to the list of taken areas and courses (some courses cover multiple areas, but only count for one)
             if(!(args[1] in takenCourses)) {
                 takenCourses[args[1]] = args[0];

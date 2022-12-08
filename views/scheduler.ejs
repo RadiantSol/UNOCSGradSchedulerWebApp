@@ -33,7 +33,7 @@
                 <form action="/scheduler" method="POST">
                     <% classes.forEach(function (r) { %>
                     <tr>
-                        <td><input type="checkbox" name="class" value="<%=r.areaOfStudy + " " + r.id %>"></td>
+                        <td><input type="checkbox" name="class" value="<%=r.areaOfStudy + "," + r.id %>"></td>
                         <td><%= r.department + " " + r.id %></td>
                         <td><%= r.classname %></td>
                         <td><%= r.areaOfStudy %></td>
