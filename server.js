@@ -62,6 +62,9 @@ app.post("/scheduler", async (req, res) => {
         depth: false, 
         hours: false
     };
+    if(req.body.class == null) {
+        res.end();
+    }
     // two objects, one holding course association with area, other holding course count of each area
     let takenCourses = {};
     let areas = {};
