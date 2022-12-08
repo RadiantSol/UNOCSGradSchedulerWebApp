@@ -1,0 +1,53 @@
+<html>
+    <style>
+      table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                text-align: left;
+                padding: 8px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            tr:nth-child(even) {
+                background-color: rgb(162, 162, 237);
+            }  
+    </style>
+    <h1>Requirements</h1>
+    <% if (valid.breadth) { %>
+    <p style="color:green">Breadth requirement satisfied!</p>
+    <% } else { %>
+    <p style="color:red">Breadth requirement unsatisfied.</p>
+    <% } %>
+    <% if (valid.depth) { %>
+        <p style="color:green">Depth requirement satisfied!</p>
+    <% } else { %>
+        <p style="color:red">Depth requirement unsatisfied.</p>
+    <% } %>
+    <% if (valid.hours) { %>
+        <p style="color:green">Credit Hour minimum satisfied!</p>
+    <% } else { %>
+        <p style="color:red">Credit hour minimum unsatisfied.</p>
+    <% } %>
+
+    <h1>Your Selected Courses</h1>
+    <table id="table" style="width:70%" >  
+        <thead>  
+            <tr>
+                <th>CourseID</th> 
+                <th>CourseName</th>
+                <th>Area of Study</th>   
+                <th>Credit Hours</th>
+            </tr>  
+        </thead>  
+        <tbody> 
+        <% classes.forEach(function (r) { %>
+            <tr>
+                <td><%= r.department + " " + r.id %></td>
+                <td><%= r.classname %></td>
+                <td><%= r.areaOfStudy %></td>
+                <td><%= r.credithours %></td>
+            </tr>                                   
+        <% }); %>
+        </tbody>
+    </table>
+</html>

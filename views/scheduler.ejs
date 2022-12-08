@@ -19,7 +19,6 @@
     </head>
     <body>
         <h1>Course List</h1>
-        <center><input class="button" type="submit" value="Submit classes!"></center>
         <table id="table" style="width:70%" >  
             <thead>  
                 <tr>
@@ -31,19 +30,18 @@
                 </tr>  
             </thead>  
             <tbody> 
-            <% classes.forEach(function (r) { %>
-                <tr>
-                    <td>
-                        <form>
-                            <input type="checkbox" name="class" value="<%=r.areaOfStudy + " " + r.id %>">
-                        </form>
-                    </td>
-                    <td><%= r.department + " " + r.id %></td>
-                    <td><%= r.classname %></td>
-                    <td><%= r.areaOfStudy %></td>
-                    <td><%= r.credithours %></td>
-                </tr>                                   
-            <% }); %>
+                <form action="/scheduler" method="POST">
+                    <% classes.forEach(function (r) { %>
+                    <tr>
+                        <td><input type="checkbox" name="class" value="<%=r.areaOfStudy + " " + r.id %>"></td>
+                        <td><%= r.department + " " + r.id %></td>
+                        <td><%= r.classname %></td>
+                        <td><%= r.areaOfStudy %></td>
+                        <td><%= r.credithours %></td>
+                    </tr>                                  
+                    <% }); %>
+                    <center><input class="button" type="submit" value="Submit classes!"></center> 
+                </form>
              </tbody>
         </table>   
     </body>
