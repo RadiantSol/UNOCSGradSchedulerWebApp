@@ -18,22 +18,24 @@
             }
     </style>
     </head>
-    <h1>Requirements</h1>
-    <% if (valid.breadth) { %>
-    <p style="color:green">Breadth requirement satisfied!</p>
-    <% } else { %>
-    <p style="color:red">Breadth requirement unsatisfied.</p>
-    <% } %>
-    <% if (valid.depth) { %>
-        <p style="color:green">Depth requirement satisfied!</p>
-    <% } else { %>
-        <p style="color:red">Depth requirement unsatisfied.</p>
-    <% } %>
-    <% if (valid.hours) { %>
-        <p style="color:green">Credit Hour minimum satisfied!</p>
-    <% } else { %>
-        <p style="color:red">Credit hour minimum unsatisfied.</p>
-    <% } %>
+    <div id="title">
+        <h1>Requirements</h1>
+        <% if (valid.breadth) { %>
+            <p style="color:green">Breadth requirement satisfied!</p>
+            <% } else { %>
+            <p style="color:red">Breadth requirement unsatisfied.</p>
+            <% } %>
+            <% if (valid.depth) { %>
+                <p style="color:green">Depth requirement satisfied!</p>
+            <% } else { %>
+                <p style="color:red">Depth requirement unsatisfied.</p>
+            <% } %>
+            <% if (valid.hours) { %>
+                <p style="color:green">Credit Hour minimum satisfied!</p>
+            <% } else { %>
+                <p style="color:red">Credit hour minimum unsatisfied.</p>
+            <% } %>
+    </div>
 
     <h1>Your Selected Courses</h1>
     <table id="table" style="width:70%" >  
