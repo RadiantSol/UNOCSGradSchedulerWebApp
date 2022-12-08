@@ -86,7 +86,7 @@ app.post("/scheduler", async (req, res) => {
     let hours = 0;
     if(totalAreas >= 3) {
         validators.breadth = true;
-        areas.keys().forEach(function (key) {
+        Object.keys(areas).forEach(function (key) {
             hours += areas[key] * 3;
             if(areas[key] >= 3) {
                 validators.depth = true;
