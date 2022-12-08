@@ -1,4 +1,6 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="scheduler.css">
     <style>
       table, th, td {
                 border: 1px solid black;
@@ -10,8 +12,12 @@
             }
             tr:nth-child(even) {
                 background-color: rgb(162, 162, 237);
-            }  
+            } 
+            tr:nth-child(odd) {
+                background-color: white
+            }
     </style>
+    </head>
     <h1>Requirements</h1>
     <% if (valid.breadth) { %>
     <p style="color:green">Breadth requirement satisfied!</p>
