@@ -2,6 +2,7 @@
 <!--TODO: MAKE THIS PRETTY :)-->
 <html>
     <head>
+        <link rel="stylesheet" href="scheduler.css">
         <style>
             table, th, td {
                 border: 1px solid black;
@@ -15,10 +16,19 @@
                 background-color: rgb(162, 162, 237);
             }
         </style>
-        <title>Courses Viewer</title>
+            <title>Courses Viewer</title>
+
     </head>
     <body>
-        <h1>Course List</h1>
+        <div id="navbar">
+            <a href="/"><p>Home</p></a>
+        </div>
+
+        <div id="title">
+            <h1>Course List</h1>
+        </div>
+
+        <div id="tablediv">
         <table id="table" style="width:70%" >  
             <thead>  
                 <tr>
@@ -40,9 +50,9 @@
                         <td><%= r.credithours %></td>
                     </tr>                                  
                     <% }); %>
-                    <center><input class="button" type="submit" value="Submit classes!"></center> 
-                </form>
+                    <center><input class="button" type="submit" value="Submit classes!"></center>
              </tbody>
         </table>   
+        </div>
     </body>
 </html>
