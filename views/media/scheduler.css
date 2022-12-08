@@ -20,6 +20,7 @@ body {
 }
 
 #title {
+    border-radius: 1.5rem;
     text-align: center;
     position: relative;
     background-color: white;
