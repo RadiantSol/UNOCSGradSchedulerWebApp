@@ -30,9 +30,11 @@
         <div id="title">
             <h1>Course List</h1>
         </div>
-
+        <form action="/scheduler" method="POST">
+        <center><input class="button" type="submit" value="Submit classes!"></center>
         <div id="tablediv">
-        <table id="table" style="width:70%" >  
+        <table id="table" style="width:70%" > 
+             
             <thead>  
                 <tr>
                     <th style="width:2%">Select</th> 
@@ -43,7 +45,6 @@
                 </tr>  
             </thead>  
             <tbody> 
-                <form action="/scheduler" method="POST">
                     <% classes.forEach(function (r) { %>
                     <tr>
                         <td><input type="checkbox" name="class" value="<%=r.areaOfStudy + "," + r.id %>"></td>
@@ -53,9 +54,9 @@
                         <td><%= r.credithours %></td>
                     </tr>                                  
                     <% }); %>
-                    <center><input class="button" type="submit" value="Submit classes!"></center>
              </tbody>
         </table>   
         </div>
+        </form>
     </body>
 </html>
