@@ -98,7 +98,7 @@ app.post("/scheduler", async (req, res) => {
     }
 
     let multiStatement = "";
-    takenCourses.forEach(function (course) {
+    Object.keys(takenCourses).forEach(function (course) {
         let prepStatement = "SELECT * FROM classes WHERE id = " + mysql.escape(course);
         prepStatement += " AND areaOfStudy = " + mysql.escape(takenCourses[course]) + " UNION ";
         multiStatement += prepStatement;
